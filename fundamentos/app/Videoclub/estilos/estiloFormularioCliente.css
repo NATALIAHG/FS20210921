@@ -1,0 +1,28 @@
+.grid-container{
+    display: grid;
+    background-color: lightgrey;
+    padding: 2%;
+}
+
+main >h1{
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 768px) {/* para moviles: */
+    
+    .grid-container > div{
+         width: 100%;      
+    }
+    main{
+        margin: 10%;
+    }
+    form{
+        padding: 5%;
+        margin: 5%;
+    }
+    .row1, .row2, .row3{
+        width: 100%;
+    }
+    
+}
