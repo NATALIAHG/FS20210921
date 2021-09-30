@@ -1,0 +1,17 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+  }
+  
+  td, input {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 25%;
+    text-align: center;
+  }
+
+  input{
+      width: 50%; /* ajustar*/
+  }

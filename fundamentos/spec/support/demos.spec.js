@@ -1,4 +1,6 @@
-fdescribe(`demos de las pruebas`,function(){
+/*
+
+xdescribe(`demos de las pruebas`,function(){
     describe(`calculo`, function(){
         it(`suma 2 + 2`,function(){
             let a = 2, b=2;
@@ -41,8 +43,8 @@ fdescribe(`demos de las pruebas`,function(){
     })
 })
 
-describe(`otra suite`,function(){
+xdescribe(`otra suite`,function(){
 
 })
 
-
+*/

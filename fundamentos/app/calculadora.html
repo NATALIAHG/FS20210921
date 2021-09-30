@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/calculadora.css" media="screen">
+    <title>Calculadora</title>
+</head>
+<body>
+   
+        <table>
+            <tr >
+               <td colspan='4'> <output id='pantalla'>0</output></td>
+            </tr>
+            <tr>
+              <td><button id='porciento' class='operadores'>%</button></td>
+              <td><button id='entre' class='operadores'>/</button></td>
+              <td><button id='borrartodo'>C</button></td>
+              <td><button id='borrarNum' >Borrar Num</button></td>           
+            </tr>
+            <tr>
+              <td><button class='numeros'>7</button></td>
+              <td><button class='numeros'>8</button></td>
+              <td><button class='numeros'>9</button></td>
+              <td><button id='por' class='operadores'>X</button></td>
+            </tr>
+            <tr>
+                <td><button  class='numeros'>4</button></td>
+                <td><button  class='numeros'>5</button></td>
+                <td><button  class='numeros'>6</button></td>
+                <td><button id='menos' class='operadores'>-</button></td>
+            </tr>
+            <tr>
+                <td><button  class='numeros'>1</button></td>
+                <td><button  class='numeros'>2</button></td>
+                <td><button  class='numeros'>3</button></td>
+                <td><button id='mas'  class='operadores'>+</button></td>
+            </tr>
+            <tr>
+                <td><button id='masmenos' class='operadores'>+/-</button></td>
+                <td><button class='numeros'>0</button></td>
+                <td><button>,</button></td>
+                <td><button class='operadores'>=</button></td>
+            </tr>
+           
+            
+          </table>
+  
+    <script src="js/calculadora.js"></script>
+    <script>
+
+        (function(){
+                       
+            let mas=document.querySelector('#mas')
+            let menos=document.querySelector('#menos')
+            let por=document.querySelector('#por')
+            let entre=document.querySelector('#entre')
+            let coma=document.querySelector('#coma')
+            let masmenos=document.querySelector('#masmenos')
+            let pantalla=document.querySelector('#pantalla')
+           
+            let calc = new Operacion();
+
+           
+
+            document.querySelectorAll('.numeros').forEach(tag =>{
+                tag.addEventListener('click',ev =>{                   
+                    calc.ponerdigito(ev.target.textContent);
+                    pantalla.textContent = calc.pantalla;
+                })
+            })
+
+            document.querySelectorAll('.operadores').forEach(tag =>{
+                tag.addEventListener('click',ev =>{                   
+                    calc.Calcular(ev.target.textContent);
+                    pantalla.textContent = calc.pantalla;
+                })
+            })
+
+
+
+
+
+        })()
+
+    </script>
+</body>
+</html>
