@@ -2,7 +2,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
-    color: lightgray;
+   
   }
   
   td, input {
@@ -21,5 +21,6 @@ table {
   button{
     border: none;
     outline:none;
+    background-color: transparent;
    
   }
