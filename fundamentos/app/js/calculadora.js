@@ -30,10 +30,27 @@ class Operacion{  //calculadora
         this.pantalla = this.acumulado.toString();
     }
 
-    
+    limpiarPantalla(){
+        this.pantalla = 0;
+    }
 
+    limpiarTodo(){
+        this.pantalla = '0';
+        this.resultado = '0';
+        this.Opera = '+';
+    }
+
+    borrar(){
+        if(this.pantalla.length > 1 && this.pantalla != '0'){
+            this.pantalla = this.pantalla.substring(0, this.pantalla.length -1);
+        }else{
+            this.pantalla = 0;
+        }
+    }
 
 }
+
+
 
 
 

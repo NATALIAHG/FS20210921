@@ -26,14 +26,7 @@ describe('Calculadora',() =>{
             let resultado
             resultado=division(a,b)
             expect(resultado).toBe(1)
-        })
-
-        it('C poner a 0',() =>{
-            let a=2
-            let resultado
-            resultado=cponerA0(a)
-            expect(resultado).toBe(0)
-        })
+        })       
 
         it('poner digito', () =>{
             let c = new Operacion();
@@ -51,7 +44,6 @@ describe('Calculadora',() =>{
             c.Calcular('=');
             expect(c.pantalla).toBe('60');
             
-
         });
 
 
