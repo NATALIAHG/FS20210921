@@ -19,11 +19,13 @@ class Operacion{  //calculadora
 
     Calcular(nuevaOperacion){
         let valor=parseFloat(this.pantalla);
+        //let resultado = parseFloat(this.resultado);
         switch(this.Opera){
             case '+':this.acumulado += valor; break;           
             case '-':this.acumulado -= valor; break;
             case '*':this.acumulado *= valor; break;
             case '/':this.acumulado /= valor; break;
+          //  default:resultado =valor;
         }
         this.Opera = nuevaOperacion;
         this.resultado = true;

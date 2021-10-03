@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Cliente</title>
-    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/estiloFormularioCliente.css">
 </head>
 <body class="pag-formulario">
 
     <main>
         <h1>Formulario cliente</h1>
+
+        <summary id="listaDeErrores"></summary>
 
         <form class="pag-principal" action="" method="post">
             <div class="grid-container">
@@ -55,6 +57,10 @@
                 <label for="last_update">Ultima actualización del cliente</label>
                 <input type="date" id="last_update" name="last_update"> <br>
             </div>
+            <div>
+                <label for="nif">Nif</label>
+                <input type="date" id="nif" name="nif"> <output class="error-msg" id="nifErr"></output>
+            </div>
             <div>    
                 <input type="button" name="volver" value="Volver">
                 <input type="submit" name="Enviar" value="Enviar">
@@ -62,5 +68,16 @@
             </div>         
         </form>
     </main>         
+
+    <footer>
+
+    </footer>
+
+    <script>
+        document
+
+
+
+    </script>
 </body>
 </html>
