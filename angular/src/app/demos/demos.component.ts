@@ -1,6 +1,7 @@
 import { templateJitUrl } from '@angular/compiler';
 import { trimTrailingNulls } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../common-services';
 
 @Component({
   selector: 'app-demos',
@@ -23,7 +24,7 @@ export class DemosComponent implements OnInit {
   estetica = { importante : true, error: false, urgente: true }; //objeto jvs
   fontSize = 14;
 
-  constructor() { }
+  constructor(public vm: NotificationService) { }
 
   public get Nombre(): string { return this.nombre; }
   public set Nombre(value: string){

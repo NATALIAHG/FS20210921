@@ -20,7 +20,8 @@ import { SecurityModule } from './security';
   ],
   imports: [
     BrowserModule, FormsModule,
-    AppRoutingModule, MyCoreModule, MainModule, CommonServicesModule, SecurityModule,
+    AppRoutingModule, MyCoreModule, MainModule, CommonServicesModule,
+    SecurityModule, CommonServicesModule, MainModule,
   ],
   providers: [
     LoggerService,
