@@ -1,0 +1,23 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+
+}
+
+td, input {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+input{
+    width: 50%; /* ajustar*/
+
+}
+button{
+  border: none;
+  outline:none;
+  background-color: transparent;
+}
