@@ -10,6 +10,7 @@ import { LoggerService, MyCoreModule } from 'src/lib/my-core';
 import { MainModule } from './main';
 import { CommonServicesModule } from './common-services';
 import { SecurityModule } from './security';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SecurityModule } from './security';
     DemosComponent,
     DinamicoComponent,
     CalculadoraComponent,
+    FormularioComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
