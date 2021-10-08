@@ -17,11 +17,11 @@ export class DinamicoComponent implements OnInit {
 
   menu = [
 
-    { texto: 'formulario cliente', icono: 'fas fa-usesr.tie', componente: ClienteFormularioComponent },
-    { texto: 'formulario', icono: 'fas fa-usesr.tie', componente: FormularioComponent },
-    { texto: 'Calculadora', icono: '', componente: CalculadoraComponent },
+    { texto: 'formulario cliente', icono: 'fas fa-user-tie', componente: ClienteFormularioComponent },
+    { texto: 'formulario', icono: 'fas fa-user-tie', componente: FormularioComponent },
+    { texto: 'Calculadora', icono: 'fas fa-calculator', componente: CalculadoraComponent },
     { texto: 'Inicio', icono: 'fas fa-home', componente: HomeComponent },
-    { texto: 'demos', icono: '', componente: DemosComponent },
+    { texto: 'demos', icono: 'fas fa-chalkboard-teacher', componente: DemosComponent },
   ];
 
   actual = this.menu[0].componente;
