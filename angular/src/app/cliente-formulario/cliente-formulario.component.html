@@ -1,0 +1,52 @@
+<form #miForm="ngForm" class="form form--col2">
+  <div class="field col-2">
+      <label for="customer_id">Código</label>
+      <input type="number" id="customer_id" name="customer_id" placeholder="Código del usuario" [(ngModel)]="vm.Elemento.customer_id" #customer_id="ngModel" required min='0 ' >
+  </div>
+  <div class="field">
+      <label for="store_id">Tienda</label>
+      <select id="store_id" name="store_id" >
+          <option value="1">Tienda 1</option>
+          <option value="2">Tienda 2</option>
+      </select>
+  </div>
+  <div class="field colspan-2">
+      <label for="first_name">Nombre</label>
+      <input type="text" id="first_name" name="first_name" [(ngModel)]="vm.Elemento.first_name" #first_name="ngModel" required minlength="2" maxlength="50" >
+  </div>
+  <div class="field colspan-2">
+      <label for="last_name">Apellidos</label>
+      <input type="text" id="last_name" name="last_name" [(ngModel)]="vm.Elemento.last_name" #last_name="ngModel" minlength="2" maxlength="50" >
+  </div>
+  <div class="field">
+      <label for="email">Correo</label>
+      <input type="email" id="email" name="email" placeholder="Correo electrónico" [(ngModel)]="vm.Elemento.email" #email="ngModel" required >
+  </div>
+  <div class="field row-4x2">
+      <label for="address_id">Dirección</label>
+      <div class="field__radio">
+          <input type="radio" id="address_id" name="address_id" checked value="1" [(ngModel)]="vm.Elemento.address_id" #address_id="ngModel">
+          Casa
+      </div>
+      <div class="field__radio">
+          <input type="radio" id="address_id" name="address_id" value="2" [(ngModel)]="vm.Elemento.address_id" #address_id="ngModel">
+          Trabajo
+      </div>
+  </div>
+  <div class="field">
+      <label for="active">Activo</label>
+      <input type="checkbox" id="active" name="active" value="true" [(ngModel)]="vm.Elemento.active" #active="ngModel" checked >
+  </div>
+  <div class="field">
+      <label for="create_date">F. Creación</label>
+      <input type="date" id="create_date" name="create_date" [(ngModel)]="vm.Elemento.create_date" #create_date="ngModel">
+  </div>
+  <div class="field">
+      <label for="last_update">Última modificacion</label>
+      <input type="date" id="last_update" name="last_update" [(ngModel)]="vm.Elemento.last_update" #last_update="ngModel">
+  </div>
+
+  <div>
+    <app-form-buttons (send)="vm.send()" (cancel)="vm.cancel()"></app-form-buttons>
+  </div>
+</form>
