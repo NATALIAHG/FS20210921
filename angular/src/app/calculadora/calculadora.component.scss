@@ -1,8 +1,16 @@
+
+$color-fondo:#8f8f91;
+$color-borde:#03010f;
+$color-numeros:#9e9da7;
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 50%;
-
+  width: 40%;
+  background-color: $color-fondo;
+  border-width: 7px;
+  margin: 15px;
+ // color: $color-letras;
 }
 
 td, input {
@@ -10,11 +18,20 @@ td, input {
   text-align: left;
   padding: 8px;
   text-align: center;
+  width: 25%;
+  border-color:$color-borde;
+  border-width: 2px;
+}
+
+.pantalla{
+  background-color: $color-numeros;
+  border-width: 3px;
+  font-size: 3em;
+
 }
 
 input{
     width: 50%; /* ajustar*/
-
 }
 button{
   border: none;

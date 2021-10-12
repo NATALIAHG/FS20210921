@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { NotificationService } from '../common-services';
 
@@ -11,6 +12,13 @@ export interface Persona {
   edad: number | null;
   dni: string | null;
 }
+
+// @Injectable({providedIn: 'root'})
+// export class PersonasDAO extends RESTDAOService<Persona, number>{} // tipo claves number
+//   constructor(http: HttpClient){
+//     super(http, 'personas');
+//   }
+// }
 
 @Injectable({ providedIn: 'root' }) // para que el servicio sea global
 export class PersonasViewModel {
@@ -35,7 +43,7 @@ export class PersonasViewModel {
   };
   IsAdd = true; // para comprobar si esta añadiendo
 
-  constructor(private notify: NotificationService) {
+  constructor(private notify: NotificationService) {//private dao: PersonasDAO  //inyectamos el servicio que hemos creado
     // le inyecto el servicio notificaciones
     this.add();
   }

@@ -1,6 +1,6 @@
 <div class="form__comand">
-  <input type="submit" value="enviar" (click)="send.emit()">
-  <input type="button" value="volver" (click)="cancel.emit()" >
+  <input type="button" value="Volver" (click)="cancel.emit(null)" class="btn btn-secondary">
+  <input type="submit" value="Enviar" (click)="send.emit(null)" [disabled]="sendDisabled" class="btn btn-primary">
 </div>
 
 <!-- <div class="btn-group" role="group">
