@@ -16,7 +16,7 @@ import { UnlessDirective } from './directives/estructurales.directive';
     SizerComponent, PIPES_CADENAS, DIRECTIVAS_ATRIBUTO, MIS_VALIDADORES, UnlessDirective,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class MyCoreModule { }
