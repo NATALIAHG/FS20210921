@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MyCoreModule } from 'src/lib/my-core';
 import { CommonServicesModule } from '../common-services';
-import { ContactosComponent, CONTACTOS_COMPONENTES } from './componente.component';
+import { librosComponent, libros_COMPONENTES } from './componente.component';
 import { CommonComponentModule } from '../common-component/common-component.module';
 
 
 
 @NgModule({
   declarations: [
-    CONTACTOS_COMPONENTES,
+    libros_COMPONENTES,
   ],
   exports: [
-    ContactosComponent,
+    librosComponent,
   ],
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
@@ -23,4 +23,4 @@ import { CommonComponentModule } from '../common-component/common-component.modu
 
 
 })
-export class ContactosModule {  }
+export class librosModule {  }

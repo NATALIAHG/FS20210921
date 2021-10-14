@@ -15,6 +15,10 @@ import { ClienteFormularioComponent } from './cliente-formulario/cliente-formula
 import { CommonComponentModule } from './common-component/common-component.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactosModule } from './contactos';
+import { librosModule } from './libros';
+
+
+
 
 @NgModule({
   declarations: [
@@ -28,10 +32,15 @@ import { ContactosModule } from './contactos';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, CommonComponentModule,
-    SecurityModule, CommonServicesModule, MainModule, ContactosModule
+    SecurityModule, CommonServicesModule, MainModule, ContactosModule, librosModule
   ],
   providers: [
     LoggerService,
+    // { provide: LoggerService, useClass: LoggerHTTPService },
+    // { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
+    // { provide: LOCALE_ID, useValue: 'es-ES'},
+    // { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent]
 })

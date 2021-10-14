@@ -21,7 +21,6 @@ export class UppercaseValidator implements Validator {
 }
 
 
-
 export function NIFValidation(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
     if (!control.value) { return null; }

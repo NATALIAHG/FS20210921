@@ -1,15 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ContactosViewModelService } from './servicios.service';
+import { librosViewModelService } from './servicios.service';
 
 @Component({
-  selector: 'app-contactos',
+  selector: 'app-libros',
   templateUrl: './tmpl-anfitrion.component.html',
   styleUrls: ['./componente.component.scss'],
 })
-export class ContactosComponent implements OnInit {
-  constructor(protected vm: ContactosViewModelService) {}
-  public get VM(): ContactosViewModelService {
+export class librosComponent implements OnInit {
+  constructor(protected vm: librosViewModelService) {}
+  public get VM(): librosViewModelService {
     return this.vm;
   }
   ngOnInit(): void {
@@ -18,13 +18,13 @@ export class ContactosComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-contactos-list',
+  selector: 'app-libros-list',
   templateUrl: './tmpl-list.component.html',
   styleUrls: ['./componente.component.scss'],
 })
-export class ContactosListComponent implements OnInit {
-  constructor(protected vm: ContactosViewModelService) {}
-  public get VM(): ContactosViewModelService {
+export class librosListComponent implements OnInit {
+  constructor(protected vm: librosViewModelService) {}
+  public get VM(): librosViewModelService {
     return this.vm;
   }
   ngOnInit(): void {
@@ -33,13 +33,13 @@ export class ContactosListComponent implements OnInit {
 }
 
 @Component({
-  selector: 'app-contactos-add',
+  selector: 'app-libros-add',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.scss'],
 })
-export class ContactosAddComponent implements OnInit {
-  constructor(protected vm: ContactosViewModelService) {}
-  public get VM(): ContactosViewModelService {
+export class librosAddComponent implements OnInit {
+  constructor(protected vm: librosViewModelService) {}
+  public get VM(): librosViewModelService {
     return this.vm;
   }
   ngOnInit(): void {
@@ -47,18 +47,18 @@ export class ContactosAddComponent implements OnInit {
   }
 }
 @Component({
-  selector: 'app-contactos-edit',
+  selector: 'app-libros-edit',
   templateUrl: './tmpl-form.component.html',
   styleUrls: ['./componente.component.scss'],
 })
-export class ContactosEditComponent implements OnInit, OnDestroy {
+export class librosEditComponent implements OnInit, OnDestroy {
   private obs$: any;
   constructor(
-    protected vm: ContactosViewModelService,
+    protected vm: librosViewModelService,
     protected route: ActivatedRoute,
     protected router: Router
   ) {}
-  public get VM(): ContactosViewModelService {
+  public get VM(): librosViewModelService {
     return this.vm;
   }
   ngOnInit(): void {
@@ -77,18 +77,18 @@ export class ContactosEditComponent implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'app-contactos-view',
+  selector: 'app-libros-view',
   templateUrl: './tmpl-view.component.html',
   styleUrls: ['./componente.component.scss'],
 })
-export class ContactosViewComponent implements OnInit, OnDestroy {
+export class librosViewComponent implements OnInit, OnDestroy {
   private obs$: any;
   constructor(
-    protected vm: ContactosViewModelService,
+    protected vm: librosViewModelService,
     protected route: ActivatedRoute,
     protected router: Router
   ) {}
-  public get VM(): ContactosViewModelService {
+  public get VM(): librosViewModelService {
     return this.vm;
   }
   ngOnInit(): void {
@@ -106,10 +106,10 @@ export class ContactosViewComponent implements OnInit, OnDestroy {
   }
 }
 
-export const CONTACTOS_COMPONENTES = [
-  ContactosComponent,
-  ContactosListComponent,
-  ContactosAddComponent,
-  ContactosEditComponent,
-  ContactosViewComponent,
+export const libros_COMPONENTES = [
+  librosComponent,
+  librosListComponent,
+  librosAddComponent,
+  librosEditComponent,
+  librosViewComponent,
 ];
