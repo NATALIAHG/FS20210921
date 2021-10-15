@@ -5,6 +5,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
+import { SecurityModule } from '../security';
 
 
 
@@ -19,7 +20,7 @@ import { RouterModule } from '@angular/router';
     HomeComponent, NotificationComponent, PageNotFoundComponent, HeaderComponent,
   ],
   imports: [
-    CommonModule, RouterModule,
+    CommonModule, RouterModule.forChild([]),SecurityModule,
 
   ]
 })

@@ -33,6 +33,7 @@ export class DinamicoComponent implements OnInit {
     this.actual = this.menu[indice].componente;
   }
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
   }
 
