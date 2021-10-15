@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  securityApiURL: 'http://localhost:4321/',
   apiURL: 'http://localhost:4321/api/', //http://localhost:4321/api/' este para pruebas , '/api/' para pasar a produccion cuando funcione
 };
 
