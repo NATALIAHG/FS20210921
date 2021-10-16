@@ -16,6 +16,8 @@ import { CommonComponentModule } from './common-component/common-component.modul
 import { HttpClientModule } from '@angular/common/http';
 import { ContactosModule } from './contactos';
 import { librosModule } from './libros';
+import { BlogModule } from './blog';
+
 
 
 
@@ -28,11 +30,12 @@ import { librosModule } from './libros';
     CalculadoraComponent,
     FormularioComponent,
     ClienteFormularioComponent,
+
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, CommonComponentModule,
-    SecurityModule, CommonServicesModule, MainModule, ContactosModule, librosModule
+    SecurityModule, CommonServicesModule, MainModule, ContactosModule, librosModule, BlogModule,
   ],
   providers: [
     LoggerService,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { blogComponent } from '../blog/componente.component';
 import { CalculadoraComponent } from '../calculadora/calculadora.component';
 import { ClienteFormularioComponent } from '../cliente-formulario/cliente-formulario.component';
 import { ContactosComponent } from '../contactos/componente.component';
@@ -23,6 +24,7 @@ export class DinamicoComponent implements OnInit {
     { texto: 'Calculadora', icono: 'fas fa-calculator', componente: CalculadoraComponent },
     { texto: 'Inicio', icono: 'fas fa-home', componente: HomeComponent },
     { texto: 'demos', icono: 'fas fa-chalkboard-teacher', componente: DemosComponent },
+    { texto: 'blog', icono: 'fas fa-chalkboard-teacher', Component: blogComponent },
   ];
 
   actual = this.menu[0].componente;

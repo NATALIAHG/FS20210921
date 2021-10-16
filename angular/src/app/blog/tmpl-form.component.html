@@ -1,0 +1,19 @@
+<h1>Blog</h1>
+
+<div class="row" style="background-color: blueviolet;">
+  <div class="col-md-12">
+    <div *ngFor="let item of VM.Listado" class="col-sm-4 " >
+      <img *ngIf="VM.Elemento.fotourl"  data-src="{{VM.Elemento.fotourl}}" alt="Imagen de {{VM.Elemento.titulo}}" >
+      <h4>{{ VM.Elemento.titulo }} </h4>
+      <p>  {{ VM.Elemento.texto }} </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-1">
+    <input class="btn btn-secondary" type="button" value="Volver" (click)="VM.cancel()" />
+  </div>
+</div>
+
+
