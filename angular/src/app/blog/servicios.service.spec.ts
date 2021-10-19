@@ -9,8 +9,8 @@ import { blogViewModelService, RESTDAOService } from './servicios.service';
 
 import { BlogDAOService } from './servicios.service';
 
-//hago una copia para las pruebas
-export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
+//hago una copia para las pruebas, ESTA CLASE IMITA AL SERVIDOR PARA LAS PRUEBAS, queremos probar el viuwmodel
+export class DAOServiceMock<T, K> extends RESTDAOService<T, number> { //clase sustitutora del restdao
   constructor(http: HttpClient, public listado: Array<T>) {
     super(http, '')
   }
@@ -29,7 +29,7 @@ export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
   override change(id: number, item: T): Observable<T> {
     if(id > this.listado.length) return throwError("404 not found")
     this.listado[id - 1] = item;
-    return of(item);
+    return of(item); // los of, devuelven un observable resuelto
   }
   override remove(id: number): Observable<T> {
     if(id > this.listado.length) return throwError("404 not found")
@@ -57,6 +57,7 @@ export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
 //     // const req = httpMock.expectOne('http://localhost:4321/blog');
 //     const req = httpMock.expectOne('/api/blog');
 //     expect(req.request.method).toEqual('GET');
+//enchufas esta respuesta
 //     req.flush([
 //       {"id":1,"tratamiento":"Sra.","nombre":"Marline","apellidos":"Lockton Jerrans","telefono":"846 054 444","email":"mjerrans0@de.vu","sexo":"M","nacimiento":"1973-07-09","avatar":"https://randomuser.me/api/portraits/women/1.jpg","conflictivo":true},
 //       {"id":2,"tratamiento":"Sr.","nombre":"Beale","apellidos":"Knibb Koppe","telefono":"093 804 977","email":"bkoppe0@apache.org","sexo":"H","nacimiento":"1995-11-22","avatar":"https://randomuser.me/api/portraits/men/1.jpg","conflictivo":false},
@@ -64,8 +65,10 @@ export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
 //       {"id":4,"tratamiento":"Sr.","nombre":"Umberto","apellidos":"Langforth Spenclay","telefono":"855 032 596","email":"uspenclay1@mlb.com","sexo":"H","nacimiento":"2000-05-15","avatar":"https://randomuser.me/api/portraits/men/2.jpg","conflictivo":false}
 //     ]);
 //     httpMock.verify();
+//EL HTTP MOCK, SUSTITUYE EL HTTP CLIENT
 //   }));
 
+// con la copia del servidor se hacen las prubeas, comprobamos que funciona sin tocar el servidor real
 //   it('change', inject([BlogDAOService, HttpTestingController], (dao: BlogDAOService, httpMock: HttpTestingController) => {
 //     let item = {id:1, nombre:"Pepito",apellido:"Grillo"};
 //     dao.change(1, item).subscribe(() => { });
@@ -88,6 +91,7 @@ export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
 //       imports: [HttpClientTestingModule, RouterTestingModule],
 //       providers: [NotificationService, LoggerService,
 //         {
+// cuando te pida el provide me hasces una instancia del dao new dao
 //           provide: BlogDAOService, useFactory: (http: HttpClient) => new DAOServiceMock<any, number>(http, [
 //             {"id":1,"tratamiento":"Sra.","nombre":"Marline","apellidos":"Lockton Jerrans","telefono":"846 054 444","email":"mjerrans0@de.vu","sexo":"M","nacimiento":"1973-07-09","avatar":"https://randomuser.me/api/portraits/women/1.jpg","conflictivo":true},
 //             {"id":2,"tratamiento":"Sr.","nombre":"Beale","apellidos":"Knibb Koppe","telefono":"093 804 977","email":"bkoppe0@apache.org","sexo":"H","nacimiento":"1995-11-22","avatar":"https://randomuser.me/api/portraits/men/1.jpg","conflictivo":false},
@@ -123,6 +127,7 @@ export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
 //   }))
 
 //   it('edit OK', fakeAsync(() => {
+  // si le digo que edite el 3, el id a editar tiene que ser 3
 //     service.edit(3)
 //     tick()
 //     expect(service.Elemento.id).toBe(3)
@@ -146,6 +151,7 @@ export class DAOServiceMock<T, K> extends RESTDAOService<T, number> {
 //     expect(service.Modo).toBe('view')
 //   }))
 
+// ntercepto con el spy el delete y cuando lo cae lo ejecuta
 //   it('delete: accept confirm', fakeAsync(() => {
 //     spyOn(window, 'confirm').and.returnValue(true)
 //     service.delete(4)
