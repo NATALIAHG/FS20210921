@@ -1,4 +1,4 @@
-package DNI;
+package com.examples;
 
 public class ValidarDni {
 	

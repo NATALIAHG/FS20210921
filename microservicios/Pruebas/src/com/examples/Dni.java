@@ -1,4 +1,4 @@
-package DNI;
+package com.examples;
 
 import java.lang.annotation.Retention;
 import java.util.Scanner;

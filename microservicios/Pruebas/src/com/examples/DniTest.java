@@ -1,4 +1,4 @@
-package DNI;
+package com.examples;
 
 import static org.junit.jupiter.api.Assertions.*;
 
