@@ -9,7 +9,7 @@
     <div *ngFor="let item of VM.Listado" class="col-sm-4 " >
 
       <img *ngIf="item.fotourl" class="img-thumbnail" data-src="{{item.fotourl}}" alt="Imagen de {{item.titulo}}" >
-      <h2 class="btn btn-link btn-lg px-0" routerLink="{{item.titulo}}">{{item.titulo}}</h2>
+      <h2 class="btn btn-link btn-lg px-0" routerLink="{{item.id}}">{{item.titulo}}</h2>
       <p>{{item.texto | elipsis:100}}</p>
 
     </div>
