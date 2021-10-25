@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.example.domains.core.EntityBase;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -21,20 +23,25 @@ public class Language extends EntityBase<Language>implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty("id")
 	@Column(name="language_id")
 	private int languageId;
 
 	@Column(name="last_update")
+	@JsonIgnore
 	private Timestamp lastUpdate;
 
+	@JsonProperty("idioma")
 	private String name;
 
 	//bi-directional many-to-one association to Film
 	@OneToMany(mappedBy="language")
+	@JsonIgnore
 	private List<Film> films;
 
 	//bi-directional many-to-one association to Film
 	@OneToMany(mappedBy="languageVO")
+	@JsonIgnore
 	private List<Film> filmsVO;
 
 	public Language() {
