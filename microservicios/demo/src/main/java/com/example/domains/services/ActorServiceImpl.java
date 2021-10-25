@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import com.example.domains.contracts.services.ActorService;
 import com.example.domains.entities.Actor;
@@ -15,20 +18,41 @@ import com.example.infraestructure.repositories.ActorRepository;
 
 @Service
 public class ActorServiceImpl implements ActorService {
-
 	@Autowired
 	private ActorRepository dao;
 	
-	
 	@Override
 	public List<Actor> getAll() {
-		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
 
 	@Override
+	public Iterable<Actor> getAll(Sort sort) {
+		return dao.findAll(sort);
+	}
+
+	@Override
+	public Page<Actor> getAll(Pageable pageable) {
+		return dao.findAll(pageable);
+	}
+
+	@Override
+	public <T> List<T> getByProjection(Class<T> type) {
+		return dao.findByActorIdIsNotNull(type);
+	}
+
+	@Override
+	public <T> Iterable<T> getByProjection(Sort sort, Class<T> type) {
+		return dao.findByActorIdIsNotNull(sort, type);
+	}
+
+	@Override
+	public <T> Page<T> getByProjection(Pageable pageable, Class<T> type) {
+		return dao.findByActorIdIsNotNull(pageable, type);
+	}
+
+	@Override
 	public Optional<Actor> getOne(Integer id) {
-		// TODO Auto-generated method stub
 		return dao.findById(id);
 	}
 
@@ -37,12 +61,10 @@ public class ActorServiceImpl implements ActorService {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		if(item.isInvalid())
-			throw new InvalidDataException(item.getErroString());
+			throw new InvalidDataException(item.getErrorsString());
 		if(getOne(item.getActorId()).isPresent())
 			throw new DuplicateKeyException();
 		return dao.save(item);
-		// el save hace un create o replace, para que no haga un create hay que comprobar que no exista si no crea mal y duplica
-	
 	}
 
 	@Override
@@ -50,7 +72,7 @@ public class ActorServiceImpl implements ActorService {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		if(item.isInvalid())
-			throw new InvalidDataException("Errores de validación: ");
+			throw new InvalidDataException(item.getErrorsString());
 		if(getOne(item.getActorId()).isEmpty())
 			throw new NotFoundException();
 		return dao.save(item);

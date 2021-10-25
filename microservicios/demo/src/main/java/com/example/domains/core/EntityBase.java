@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 // CLASE BSAE DE TODAS LAS ENTIDADES
 public abstract class EntityBase<E> {	// E, es generica para pasar distintos tipos, actor, persona,etc
-
 	private Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
 	@Transient
@@ -22,7 +21,7 @@ public abstract class EntityBase<E> {	// E, es generica para pasar distintos tip
 	
 	@JsonIgnore
 	@Transient
-	public String getErroString() {
+	public String getErrorsString() {
 		Set<ConstraintViolation<E>> lst = getErrors();
 		if(lst.isEmpty()) return "";
 		StringBuilder sb = new StringBuilder("ERRORES:");
