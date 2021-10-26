@@ -15,10 +15,13 @@ import com.example.domains.entities.dtos.ActorDTO;
 import com.example.domains.entities.dtos.ActorShort;
 import com.example.infraestructure.repositories.ActorRepository;
 import com.example.ioc.Servicio;
+
+import springfox.documentation.oas.annotations.EnableOpenApi;
+
 import com.example.domains.contracts.services.ActorService;
 
 
-
+@EnableOpenApi  //para que active la documentacion
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 
