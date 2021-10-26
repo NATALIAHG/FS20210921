@@ -62,3 +62,13 @@ GET http://localhost:8010/language
 
 ###
 GET http://localhost:8010/peliculas/1/actores
+
+
+###
+POST http://localhost:8010/language/5
+Content-Type: application/json
+
+{
+  "languageId": 5,
+  "name": "Spanish",
+}
