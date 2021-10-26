@@ -70,7 +70,6 @@ public class Film extends EntityBase<Film> implements Serializable {
 	public Film() {
 	}
 
-	
 
 	public Film(int filmId, String title, String description, Language language) {
 		super();
@@ -79,8 +78,6 @@ public class Film extends EntityBase<Film> implements Serializable {
 		this.description = description;
 		this.language = language;
 	}
-
-
 
 	public int getFilmId() {
 		return this.filmId;
@@ -192,11 +189,17 @@ public class Film extends EntityBase<Film> implements Serializable {
 
 		return filmActor;
 	}
+	
+	//añado actor a la pelicula
+	public FilmActor addFilmActor(Actor actor) {
+		FilmActor nuevoactor = new FilmActor(this,actor);
+		getFilmActors().add(nuevoactor);
+		return nuevoactor;
+	}
 
 	public FilmActor removeFilmActor(FilmActor filmActor) {
 		getFilmActors().remove(filmActor);
 		filmActor.setFilm(null);
-
 		return filmActor;
 	}
 
@@ -221,6 +224,29 @@ public class Film extends EntityBase<Film> implements Serializable {
 
 		return filmCategory;
 	}
+
+
+	public Film(int filmId, String title, String description, int length, String rating, Short releaseYear,
+			byte rentalDuration, BigDecimal rentalRate, BigDecimal replacementCost, Language language,
+			Language languageVO, List<FilmActor> filmActors, List<FilmCategory> filmCategories) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.length = length;
+		this.rating = rating;
+		this.releaseYear = releaseYear;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.replacementCost = replacementCost;
+		this.language = language;
+		this.languageVO = languageVO;
+		this.filmActors = filmActors;
+		this.filmCategories = filmCategories;
+	}
+
+
+
 
 	
 }

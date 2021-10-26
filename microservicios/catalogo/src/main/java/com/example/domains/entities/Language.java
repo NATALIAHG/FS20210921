@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.example.domains.core.EntityBase;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,7 +29,10 @@ public class Language extends EntityBase<Language>implements Serializable {
 	private int languageId;
 
 	@Column(name="last_update")
+	
+	//@JsonFormat(pattern = "yyyy-MM-dd")	
 	@JsonIgnore
+	//@JsonProperty("fecha")
 	private Timestamp lastUpdate;
 
 	@JsonProperty("idioma")
