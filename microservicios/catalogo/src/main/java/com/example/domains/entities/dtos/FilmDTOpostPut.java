@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.hibernate.transform.ToListResultTransformer;
 import org.springframework.beans.factory.parsing.SourceExtractor;
@@ -42,20 +43,20 @@ public class FilmDTOpostPut {
 	@JsonProperty("replacementCost")
 	private BigDecimal replacementCost;
 	@JsonProperty("language")
-	private Language language;
+	private Integer language;
 	@JsonProperty("languageVO")
-	private Language languageVO;
+	private Integer languageVO;
 	@JsonProperty("filmActors")
-	private List<FilmActor> filmActors;
+	private List<Integer> filmActors;
 	@JsonProperty("filmCategories")
-	private List<FilmCategory> filmCategories;
+	private List<Integer> filmCategories;
 	
 	
 	public static Film from(FilmDTOpostPut source) {
 		Film peliFilm =  new Film(
 				source.getFilmId(),
 				source.getTitle(),
-			//	new Language(source.getLanguageid()),
+				//new Language(source.getLanguageid()),
 				source.getDescription(),
 				source.getLength(),
 				source.getRating(),
@@ -63,32 +64,31 @@ public class FilmDTOpostPut {
 				source.getRentalDuration(),
 				source.getRentalRate(),
 				source.getReplacementCost(),
-				source.getLanguage(),
-				source.getLanguageVO(),
-				source.getFilmActors(),
-				source.getFilmCategories()						
+				new Language(source.getLanguage()),
+				new Language(source.getLanguageVO())							
 				);
 		//recorremos la coleccion añadiendo el idactor
-		source.filmActors.forEach(idactor->peliFilm.addFilmActor(new Actor(idactor)));
+		//source.filmActors.forEach(idactor->peliFilm.addFilmActor(new Actor(idactor)));
+
 		return peliFilm;
 	}
 	public static FilmDTOpostPut from(Film source) {
 		return new FilmDTOpostPut(
-			source.getFilmId(),
-			source.getDescription(),
-			source.getLength(),
-			source.getRating(),
-			source.getReleaseYear(),
-			source.getRentalDuration(),
-			source.getRentalRate(),
-			source.getReplacementCost(),	
-			source.getTitle(),
-			source.getLanguage().getLanguageId(),
-			source.getLanguageVO(),			
-			 //stream convierte un array en un flujo para consultas, map coge elemento entrada y devuelve valor de salida
-			//collect para materializarlo en una tabla  collect(collect.toList()),
-			source.getFilmActors().stream().map(item->item.getActor().getActorId()).collect(Collection.toList()),
-			source.getFilmCategories()			
+				source.getFilmId(),
+				source.getTitle(),
+				source.getDescription(),
+				source.getLength(),
+				source.getRating(),
+				source.getReleaseYear(),
+				source.getRentalDuration(),
+				source.getRentalRate(),
+				source.getReplacementCost(),
+				source.getLanguage().getLanguageId(),
+				source.getLanguageVO().getLanguageId(),			
+				 //stream convierte un array en un flujo para consultas, map coge elemento entrada y devuelve valor de salida
+				//collect para materializarlo en una tabla  collect(collect.toList()),
+				source.getFilmActors().stream().map(item->item.getActor().getActorId()).collect(Collectors.toList()),
+				source.getFilmCategories().stream().map(item->item.getCategory().getCategoryId()).collect(Collectors.toList())			
 			);
 	}
 }

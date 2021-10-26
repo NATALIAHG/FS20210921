@@ -26,8 +26,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.domains.contracts.services.FilmService;
+import com.example.domains.entities.Actor;
+import com.example.domains.entities.Category;
 import com.example.domains.entities.dtos.ActorDTO;
 import com.example.domains.entities.dtos.FilmDTO;
+import com.example.domains.entities.dtos.FilmDTOpostPut;
 import com.example.domains.entities.dtos.FilmShort;
 import com.example.exceptions.BadRequestException;
 import com.example.exceptions.DuplicateKeyException;
@@ -73,12 +76,15 @@ public class FilmResource {
 			return (List<ActorDTO>) film.get().getFilmActors().stream().map(item -> ActorDTO.from(item.getActor())).collect(Collectors.toList());
 		}
 	}
-	/*
+	
 	@PostMapping
-	public ResponseEntity<Object> create(@Valid @RequestBody FilmDTO item) throws BadRequestException, DuplicateKeyException, InvalidDataException {
+	public ResponseEntity<Object> create(@Valid @RequestBody FilmDTOpostPut item) throws BadRequestException, DuplicateKeyException, InvalidDataException, NotFoundException {
 		if(item == null)
 			throw new BadRequestException("Faltan los datos");
-		var newItem = srv.add(FilmDTO.from(item));
+		var newItem = srv.add(FilmDTOpostPut.from(item)); // falta pasar las categorias y guardar
+		item.getFilmActors().forEach(idactor->newItem.addFilmActor(new Actor(idactor)));
+		item.getFilmCategories().forEach(idcategory->newItem.addFilmCategory(new Category(idcategory)));
+		srv.modify(newItem);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 			.buildAndExpand(newItem.getFilmId()).toUri();
 		return ResponseEntity.created(location).build();
@@ -87,12 +93,12 @@ public class FilmResource {
 
 	@PutMapping("/{id}")
 	//@ResponseStatus(HttpStatus.NO_CONTENT)
-	public FilmDTO update(@PathVariable int id, @Valid @RequestBody FilmDTO item) throws BadRequestException, NotFoundException, InvalidDataException {
+	public FilmDTOpostPut update(@PathVariable int id, @Valid @RequestBody FilmDTOpostPut item) throws BadRequestException, NotFoundException, InvalidDataException {
 		if(item == null)
 			throw new BadRequestException("Faltan los datos");
 		if(id != item.getFilmId())
 			throw new BadRequestException("No coinciden los identificadores");
-		return FilmDTO.from(srv.modify(FilmDTO.from(item)));	
+		return FilmDTOpostPut.from(srv.modify(FilmDTOpostPut.from(item)));	
 	}
 
 	@DeleteMapping("/{id}")
@@ -100,5 +106,5 @@ public class FilmResource {
 	public void delete(@PathVariable int id) {
 		srv.deleteById(id);
 	}
-	*/
+	
 }

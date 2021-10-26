@@ -66,6 +66,7 @@ public class Actor extends EntityBase<Actor> implements Serializable {
 		this.lastName = lastName;
 	}
 
+
 	public int getActorId() {
 		return this.actorId;
 	}

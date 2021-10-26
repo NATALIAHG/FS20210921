@@ -7,6 +7,7 @@ import com.example.domains.core.EntityBase;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -65,7 +66,7 @@ public class Film extends EntityBase<Film> implements Serializable {
 
 	//bi-directional many-to-one association to FilmCategory
 	@OneToMany(mappedBy="film")
-	private List<FilmCategory> filmCategories;
+	private List<FilmCategory> filmCategories = new ArrayList<FilmCategory>();
 
 	public Film() {
 	}
@@ -192,9 +193,9 @@ public class Film extends EntityBase<Film> implements Serializable {
 	
 	//añado actor a la pelicula
 	public FilmActor addFilmActor(Actor actor) {
-		FilmActor nuevoactor = new FilmActor(this,actor);
-		getFilmActors().add(nuevoactor);
-		return nuevoactor;
+		FilmActor nuevo = new FilmActor(this,actor);
+		getFilmActors().add(nuevo);
+		return nuevo;
 	}
 
 	public FilmActor removeFilmActor(FilmActor filmActor) {
@@ -217,6 +218,12 @@ public class Film extends EntityBase<Film> implements Serializable {
 
 		return filmCategory;
 	}
+	
+	public FilmCategory addFilmCategory(Category category) {
+		FilmCategory filmCategory = new FilmCategory(this, category);
+		getFilmCategories().add(filmCategory);
+		return filmCategory;
+	}
 
 	public FilmCategory removeFilmCategory(FilmCategory filmCategory) {
 		getFilmCategories().remove(filmCategory);
@@ -228,7 +235,7 @@ public class Film extends EntityBase<Film> implements Serializable {
 
 	public Film(int filmId, String title, String description, int length, String rating, Short releaseYear,
 			byte rentalDuration, BigDecimal rentalRate, BigDecimal replacementCost, Language language,
-			Language languageVO, List<FilmActor> filmActors, List<FilmCategory> filmCategories) {
+			Language languageVO) {
 		super();
 		this.filmId = filmId;
 		this.title = title;
@@ -241,8 +248,7 @@ public class Film extends EntityBase<Film> implements Serializable {
 		this.replacementCost = replacementCost;
 		this.language = language;
 		this.languageVO = languageVO;
-		this.filmActors = filmActors;
-		this.filmCategories = filmCategories;
+
 	}
 
 
