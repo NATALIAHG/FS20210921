@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 
 import com.example.domains.entities.Actor;
@@ -29,6 +30,7 @@ import com.example.domains.contracts.services.ActorService;
 
 //http://localhost:8010/swagger-ui/
 @EnableOpenApi
+@EnableEurekaClient
 @SpringBootApplication
 public class CatalogoApplication {
 

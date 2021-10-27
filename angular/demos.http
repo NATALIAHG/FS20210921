@@ -72,3 +72,21 @@ Content-Type: application/json
   "languageId": 5,
   "name": "Spanish",
 }
+
+
+###
+POST http://localhost:8010/localhost:8010/peliculas
+Content-Type: application/json
+Accept: text/xml, application/json
+{
+  "id": 200,
+  "titulo": "pelicula natalia",
+  "descripcion": " descripcion pelicula",
+  "length": 20,
+  "clasificación": ,
+  "año_lanzamiento": ,
+  "duracion": ,
+  "tasa_rendimiento": ,
+
+
+}
