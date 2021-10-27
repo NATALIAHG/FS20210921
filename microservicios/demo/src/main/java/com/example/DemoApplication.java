@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.domains.entities.Actor;
 import com.example.domains.entities.Film;
@@ -22,11 +25,17 @@ import com.example.domains.contracts.services.ActorService;
 
 
 @EnableOpenApi  //para que active la documentacion
+@EnableEurekaClient
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+	}
+	
+	@Bean
+	public RestTemplate restTemplate(RestTemplate builder) {
+		
 	}
 
 //	@Autowired
