@@ -77,7 +77,7 @@ public class FilmResource {
 		}
 	}
 	
-	@PostMapping
+	@PostMapping		//USANDO EL SERVICIO HAGO EL CREATE,  LUEGO AÑADO EL ELEMENTO Y LO MODIFICO
 	public ResponseEntity<Object> create(@Valid @RequestBody FilmDTOpostPut item) throws BadRequestException, DuplicateKeyException, InvalidDataException, NotFoundException {
 		if(item == null)
 			throw new BadRequestException("Faltan los datos");

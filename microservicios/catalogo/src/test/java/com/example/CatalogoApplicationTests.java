@@ -13,7 +13,7 @@ import com.example.ioc.Formato;
 import com.example.ioc.Servicio;
 
 @SpringBootTest
-class DemoApplicationTests {
+class CatalogoApplicationTests {
 
 	@Autowired
 	@Qualifier("uno") // como tengo dos implimentaciones para un servicio los identifico y para que sepa cual coger. UN SERVICIO UNA IMPLEMENTACION, si hay dos especificar)
