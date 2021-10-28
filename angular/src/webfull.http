@@ -1,0 +1,18 @@
+get http://localhost:8066/api/contactos
+Accept: application/x-ndjson
+
+###
+
+get http://localhost:8066/api/contactos
+Accept: application/json
+
+
+
+###
+get http://localhost:8066/api/contactos/2
+
+###   siempre en orden, tarda 3 sg
+get http://localhost:8065/serie
+
+###   según le llegan, tarda mucho menos 1 sg
+get http://localhost:8065/paralelo
