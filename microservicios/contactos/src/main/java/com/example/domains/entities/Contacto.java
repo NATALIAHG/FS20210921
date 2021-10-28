@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Document("contactos")
 public class Contacto {
 	@Id
 	@Field("_id")

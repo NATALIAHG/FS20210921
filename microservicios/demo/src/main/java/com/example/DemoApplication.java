@@ -1,13 +1,17 @@
 package com.example;
 
+
 import javax.transaction.Transactional;
 
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -25,7 +29,8 @@ import com.example.domains.contracts.services.ActorService;
 
 
 @EnableOpenApi  //para que active la documentacion
-@EnableEurekaClient
+//@EnableEurekaClient
+//@EnableFeignClientes("")
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
 
@@ -34,8 +39,16 @@ public class DemoApplication implements CommandLineRunner{
 	}
 	
 	@Bean
-	public RestTemplate restTemplate(RestTemplate builder) {
-		
+	@Qualifier("directo")
+	public RestTemplate restTemplateDirecto(RestTemplateBuilder builder) {
+		return builder.build();
+	}
+
+	@Bean
+	@LoadBalanced
+	@Qualifier("balanceado")
+	public RestTemplate restTemplateBalanceado(RestTemplateBuilder builder) {
+		return builder.build();
 	}
 
 //	@Autowired
