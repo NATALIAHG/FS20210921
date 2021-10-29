@@ -10,13 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.example.domains.entities.Actor;
 import com.example.infraestructure.repositories.ActorRepository;
 import com.example.ioc.Formato;
 import com.example.ioc.Servicio;
 
 @SpringBootTest
-class ActoresTests {
 
+class ActoresTests {
+/*
 	@Nested
 	class Entidad{
 		@Test
@@ -33,6 +35,6 @@ class ActoresTests {
 	}
 	
 	
-}
+}*/
 	
 }

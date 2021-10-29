@@ -3,6 +3,7 @@ package com.example.domains.entities.dtos;
 import java.lang.invoke.VarHandle.AccessMode;
 import java.math.BigDecimal;
 import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collector;
@@ -40,7 +41,7 @@ public class FilmDTOpostPut {
 	@ApiModelProperty(value = "Descripcion de la pelicula" )
 	@JsonProperty("descripcion")
 	private String description;
-	// @JsonProperty("idioma")
+//	 @JsonProperty("idioma")
 //	private int languageid;
 	@ApiModelProperty(value = "Length" )
 	@JsonProperty("length")
@@ -67,17 +68,18 @@ public class FilmDTOpostPut {
 	@JsonProperty("languageVO")
 	private Integer languageVO;
 	@JsonProperty("filmActors")
-	private List<Integer> filmActors;
+	private List<Integer> filmActors = new ArrayList<Integer>();
 	@JsonProperty("filmCategories")
-	private List<Integer> filmCategories;
+	private List<Integer> filmCategories = new ArrayList<Integer>();
 
 	public static Film from(FilmDTOpostPut source) {
 		Film peliFilm = new Film(source.getFilmId(), source.getTitle(),
 				// new Language(source.getLanguageid()),
 				source.getDescription(), source.getLength(), source.getRating(), source.getReleaseYear(),
 				source.getRentalDuration(), source.getRentalRate(), source.getReplacementCost(),
-				new Language(source.getLanguage()), new Language(source.getLanguageVO()));
-
+				source.getLanguage() == null ? null : new Language(source.getLanguage()),
+				source.getLanguageVO() == null ? null : new Language(source.getLanguageVO()));
+				
 		// LAS COLLECIONES LAS DEJAMOS FUERA PARA TRATARLAS LUEGO
 		// recorremos la coleccion añadiendo el idactor
 		// source.filmActors.forEach(idactor->peliFilm.addFilmActor(new
