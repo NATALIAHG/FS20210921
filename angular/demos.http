@@ -61,8 +61,40 @@ GET http://localhost:8010/actores
 GET http://localhost:8010/language
 
 ###
-GET http://localhost:8010/peliculas/1/actores
+GET http://localhost:8010/peliculas/1001
 
+
+###
+POST http://localhost:8010/peliculas
+Content-Type: application/json
+Accept:  application/json
+
+{
+  "id": 0,
+  "titulo": "pelicula natalia",
+  "descripcion": "descripcion pelicula",
+  "length": 20,
+  "clasificación": "g",
+  "año_lanzamiento":2021,
+  "duracion":2,
+  "tasa_rendimiento":0.99,
+  "replacementCost":20.99,
+  "language":1
+}
+
+###
+PUT http://localhost:8010/categorias/16
+Content-Type: application/json
+
+{
+"categoryId": 16, "name": "SERIE B"
+}
+
+###
+POST http://localhost:8010/language/7
+Content-Type: application/json
+
+{ "idioma": "Español" }
 
 ###
 POST http://localhost:8010/language/5
@@ -71,22 +103,4 @@ Content-Type: application/json
 {
   "languageId": 5,
   "name": "Spanish",
-}
-
-
-###
-POST http://localhost:8010/localhost:8010/peliculas
-Content-Type: application/json
-Accept: text/xml, application/json
-{
-  "id": 200,
-  "titulo": "pelicula natalia",
-  "descripcion": " descripcion pelicula",
-  "length": 20,
-  "clasificación": ,
-  "año_lanzamiento": ,
-  "duracion": ,
-  "tasa_rendimiento": ,
-
-
 }
