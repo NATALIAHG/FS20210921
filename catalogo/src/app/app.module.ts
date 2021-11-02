@@ -10,6 +10,7 @@ import { LoggerService, MyCoreModule } from 'src/lib/my-core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActoresModule } from './actores';
+import { PeliculasModule } from './peliculas';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ActoresModule } from './actores';
   imports: [
     BrowserModule,
     AppRoutingModule, MainModule, HttpClientModule, CommonServicesModule,SecurityModule,
-    MyCoreModule, FormsModule, CommonModule, ActoresModule,
+    MyCoreModule, FormsModule, CommonModule, ActoresModule, PeliculasModule,
   ],
   providers: [
     LoggerService,

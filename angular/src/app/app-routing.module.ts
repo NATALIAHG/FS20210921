@@ -47,9 +47,6 @@ const routes: Routes = [
   { path: '**', component: PageNotFoundComponent}  //para cuando falle
 
 //MEJOR CON CHILDREN
-
-
-
   // { path: 'formulario',  component: FormularioComponent },
   // { path: 'clienteFormulario',  component: ClienteFormularioComponent },
 ];

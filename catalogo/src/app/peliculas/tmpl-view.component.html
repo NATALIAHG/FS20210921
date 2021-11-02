@@ -1,0 +1,45 @@
+<h1>Informacion sobre la pelicula</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-md-2">
+          <label class="form-label" for="id">Id pelicula</label>
+          <input type="number" readonly='true' [class.is-invalid]="id.invalid" id="id"
+            name="customer_id" [(ngModel)]="VM.Elemento.id" #id="ngModel" placeholder="Código">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="titulo">Titulo</label>
+          <input type="text" class="form-control" [class.is-invalid]="titulo.invalid" titulo="titulo"
+            name="titulo" [(ngModel)]="VM.Elemento.titulo" #titulo="ngModel" placeholder="titulo">
+            <!-- <app-show-errors-messages [errors]="required.errors"></app-show-errors-messages> -->
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="descripcion">descripcion</label>
+          <input type="text" class="form-control" [class.is-invalid]="descripcion.invalid" descripcion="descripcion"
+            name="descripcion" [(ngModel)]="VM.Elemento.descripcion" #descripcion="ngModel" placeholder="descripcion">
+            <!-- <app-show-errors-messages [errors]="required.errors"></app-show-errors-messages> -->
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="idioma">idioma</label>
+          <input type="number" class="form-control" [class.is-invalid]="idioma.invalid" idioma="idioma"
+            name="idioma" [(ngModel)]="VM.Elemento.idioma" #idioma="ngModel" placeholder="idioma">
+            <!-- <app-show-errors-messages [errors]="required.errors"></app-show-errors-messages> -->
+        </div>
+        <!-- <div>
+          <app-form-buttons (send)="vm.send()" [send-disabled]="miForm.invalid"></app-form-buttons>
+          <app-form-button (cancel)="vm.cancel()"></app-form-button>
+          <app-form-button (delete)="vm.delete()"></app-form-buttons>
+        </div> -->
+
+        <!-- <input
+          class="btn btn-secondary"
+          type="button"
+          value="Volver"
+          (click)="VM.cancel()"
+        /> -->
+
+      </div>
+    </div>
+  </div>
+</div>
