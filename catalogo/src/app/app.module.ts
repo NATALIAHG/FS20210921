@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { ActoresModule } from './actores';
 import { PeliculasModule } from './peliculas';
 import { CategoriasModule } from './categorias';
+import { IdiomasModule } from './idiomas';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { CategoriasModule } from './categorias';
   imports: [
     BrowserModule,
     AppRoutingModule, MainModule, HttpClientModule, CommonServicesModule,SecurityModule,
-    MyCoreModule, FormsModule, CommonModule, ActoresModule, PeliculasModule, CategoriasModule,
+    MyCoreModule, FormsModule, CommonModule, ActoresModule, PeliculasModule, CategoriasModule, IdiomasModule,
   ],
   providers: [
     LoggerService,
