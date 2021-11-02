@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { NotificationService } from '../common-services';
 import { LoggerService } from 'src/lib/my-core';
 import { Router } from '@angular/router';
+import { AuthService, AUTH_REQUIRED } from '../security/services/serguridad.service';
 
 // tipo de datos para controlar la transición de estados
 export type ModoCRUD = 'list' | 'add' | 'edit' | 'view' | 'delete';
@@ -42,10 +43,13 @@ export abstract class RESTDAOService<T, K> { //la abstracta primero para que la 
 export class ActoresDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
     super(http, 'actores', {
-      //context: new HttpContext().set(AUTH_REQUIRED, true)
+      context: new HttpContext().set(AUTH_REQUIRED, true)
     });
+
   }
 }
+
+
 
 //clase base de los servicios DAO:
 //La clase necesita los siguientes atributos
@@ -70,7 +74,8 @@ export class ActoresViewModelService {
     protected notify: NotificationService,
     protected out: LoggerService,
     protected dao: ActoresDAOService,
-    protected router: Router
+    protected router: Router,
+    public auth: AuthService,
   ) {}
 
   //Crear propiedades que expongan los atributos enlazables en las plantillas:
