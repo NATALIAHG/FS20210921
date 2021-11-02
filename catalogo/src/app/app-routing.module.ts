@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActoresAddComponent, ActoresComponent, ActoresEditComponent, ActoresViewComponent } from './actores';
-import { PageNotFoundComponent } from './main';
+import { CategoriasAddComponent, CategoriasComponent, CategoriasEditComponent, CategoriasViewComponent } from './categorias';
 import { PeliculasAddComponent, PeliculasComponent, PeliculasEditComponent, PeliculasViewComponent } from './peliculas';
 
 const routes: Routes = [
@@ -22,6 +22,13 @@ const routes: Routes = [
     { path: ':id/:kk',  component: PeliculasViewComponent }, // aqui el seo se podria mas datos de ruta s que quiere
   ]},
 
+  { path: 'categorias', children: [
+    { path: '',  component: CategoriasComponent },
+    { path: 'add',  component: CategoriasAddComponent },
+    { path: ':id/edit',  component: CategoriasEditComponent },
+    { path: ':id',  component: CategoriasViewComponent }, // aqui el seo se podria mas datos de ruta s que quiere
+    { path: ':id/:kk',  component: CategoriasViewComponent }, // aqui el seo se podria mas datos de ruta s que quiere
+  ]},
 
 
 ]

@@ -1,0 +1,42 @@
+<h1>Datos sobre la categoria</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-md-2">
+          <label class="form-label" for="id">Id </label>
+          <input type="number" readonly='true' [class.is-invalid]="id.invalid" id="id"
+            name="id" [(ngModel)]="VM.Elemento.id" #id="ngModel" placeholder="Categoria">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label" for="name">Categoria</label>
+          <input type="text" class="form-control" name="name"
+            name="name" [(ngModel)]="VM.Elemento.name" #name="ngModel" placeholder="categoria">
+            <!-- <app-show-errors-messages [errors]="required.errors"></app-show-errors-messages> -->
+        </div>
+
+        <!-- <div>
+          <app-form-buttons (send)="vm.send()" [send-disabled]="miForm.invalid"></app-form-buttons>
+          <app-form-button (cancel)="vm.cancel()"></app-form-button>
+          <app-form-button (delete)="vm.delete()"></app-form-buttons>
+        </div> -->
+        <div class="col-md-2">
+        <input
+          class="btn btn-secondary"
+          type="button"
+          value="Volver"
+          (click)="VM.cancel()"
+        />
+
+        <input
+        class="btn btn-secondary"
+        type="button"
+        value="Enviar"
+        (click)="VM.send()"
+      />
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>

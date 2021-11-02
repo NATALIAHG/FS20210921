@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActoresModule } from './actores';
 import { PeliculasModule } from './peliculas';
+import { CategoriasModule } from './categorias';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { PeliculasModule } from './peliculas';
   imports: [
     BrowserModule,
     AppRoutingModule, MainModule, HttpClientModule, CommonServicesModule,SecurityModule,
-    MyCoreModule, FormsModule, CommonModule, ActoresModule, PeliculasModule,
+    MyCoreModule, FormsModule, CommonModule, ActoresModule, PeliculasModule, CategoriasModule,
   ],
   providers: [
     LoggerService,
