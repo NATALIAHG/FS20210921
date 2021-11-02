@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActoresComponent } from './actores/actores.component';
+import { ActoresComponent } from './actores';
 
 const routes: Routes = [
+  { path: '',  component: ActoresComponent },
   { path: 'actores', children: [
     { path: '',  component: ActoresComponent },
  //   { path: 'add',  component: ContactosAddComponent },

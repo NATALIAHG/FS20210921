@@ -1,3 +1,4 @@
+categorias
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="'/'" routerLinkActive="router-link-active" ><img src="assets/logo.png" width="120" alt="Logotipo"></a>
@@ -5,18 +6,29 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <img
+      width="100"
+      alt="Logo"
+      src="assets/logo.png"
+    />
+    <span>Bienvenido al videoclub SAKILA</span>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/actores" routerLinkActive="active" ><i class="fas fa-chalkboard-teacher"></i>Actores</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/categorias" routerLinkActive="active" ><i class="fas fa-chalkboard-teacher"></i>Categorias</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/peliculas" routerLinkActive="active" ><i class="fas fa-chalkboard-teacher"></i>Peliculas</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="/idiomas" routerLinkActive="active" ><i class="fas fa-chalkboard-teacher"></i>Idiomas</a>
+      </li>
+    </ul>
 
-
-        <li class="nav-item" >
-          <a class="nav-link" routerLink="/contactos" routerLinkActive="active" ><i class="fas fa-user-tie"></i>Contactos</a>
-        </li>
-        <li class="nav-item" >
-          <a class="nav-link" routerLink="/blog" routerLinkActive="active" ><i class="fas fa-user-tie"></i>Blog</a>
-        </li>
-      </ul>
-      <!-- <app-login></app-login> -->
-
+    <app-login></app-login>
     </div>
   </div>
 </nav>
+
